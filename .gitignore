@@ -1,0 +1,14 @@
+*.toc
+*.aux
+*.log
+*.out
+*.DS_Store
+*.db
+*.synctex.gz
+*.fdb*
+*.idx
+*.ilg
+*.ind
+*.fls
+/tex/stata/
+/tex/*.do

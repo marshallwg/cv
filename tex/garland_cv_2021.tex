@@ -1,0 +1,246 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\documentclass[11pt,a4paper,sans, colorlinks,linkcolor=true]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{blue}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.84]{geometry}
+\usepackage{comment}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+\definecolor{color1}{rgb}{0.22,0.45,0.70}% light blue
+
+%MWG: added to change the formatting of the quote section.
+\usepackage{ragged2e} % provides \justifying
+\renewcommand*{\quotefont}{\large\slshape\justifying}
+\let\originalrecomputecvlengths\recomputecvlengths
+\renewcommand*{\recomputecvlengths}{%
+	\originalrecomputecvlengths%
+	\setlength{\quotewidth}{1\textwidth}}
+
+%Updated to add different formatting for the references
+\newcommand{\cvdoublecolumn}[2]{%
+	\cvitem[0.75em]{}{%
+		\begin{minipage}[t]{\listdoubleitemcolumnwidth}#1\end{minipage}%
+		\hfill%
+		\begin{minipage}[t]{\listdoubleitemcolumnwidth}#2\end{minipage}%
+	}%
+}
+
+%MWG added to change margin
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+
+%MWG added
+\renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+
+%UPDATE
+%\renewcommand{\refname}{Selected Reports and Peer-Reviewed Publications}
+
+% usage: \cvreference{name}{address line 1}{address line 2}{address line 3}{address line 4}{e-mail address}{phone number}
+% Everything but the name is optional
+% If \addresssymbol, \emailsymbol or \phonesymbol are specified, they will be used.
+% (Per default, \addresssymbol isn't specified, the other two are specified.)
+% If you don't like the symbols, remove them from the following code, including the tilde ~ (space).
+\newcommand{\cvreference}[7]{%
+	\textbf{#1}\newline% Name
+	\ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
+	\ifthenelse{\equal{#3}{}}{}{#3\newline}%
+	\ifthenelse{\equal{#4}{}}{}{#4\newline}%
+	\ifthenelse{\equal{#5}{}}{}{#5\newline}%
+	\ifthenelse{\equal{#6}{}}{}{\emailsymbol~\texttt{#6}\newline}%
+	\ifthenelse{\equal{#7}{}}{}{\phonesymbol~#7}}
+
+%MWG Added; Bibliography
+\usepackage{filecontents}
+
+%NWG ADDED for adding google scholar
+% makes a https hyperlink
+% usage: \httpslink[optional text]{link}
+% makes a https hyperlink
+% usage: \httpslink[optional text]{link}
+%
+
+% personal data
+\name{Marshall}{Garland}
+\title{Quantitative Social Scientist}                               % optional, remove / comment the line if not wanted
+%\address{7521 Grover Avenue}{Austin, TX 78757}{}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{+1~(512)~788~0359}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+%\phone[fixed]{+2~(345)~678~901}
+%\phone[fax]{+3~(456)~789~012}
+\email{marshall.w.garland@gmail.com}                               % optional, remove / comment the line if not wanted
+%\homepage{www.johndoe.com}                         % optional, remove / comment the line if not wanted
+\social[linkedin]{marshall-garland-ab34545}                        % optional, remove / comment the line if not wanted
+\social[twitter]{https://twitter.com/mwgarland}
+\social[github]{https://github.com/marshallwg}
+%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+\newcommand{\quotetext}{\normalfont{I am a senior research scientist and a member of the firm's management team. I am support the recruitment, supervision, professional development and training of our quantitative researchers, while also serving as the lead quantitative researcher and methodological advisor for most research and evaluation projects. I am also am part of the team that supports the business development efforts of the research and evaluation group. As an applied social scientist, my primary research interests lie in using administrative data to answer applied research questions using statistical models, with a particular focus on postsecondary readiness and outcomes. Most of my statistical work is quasi-experimental or descriptive, though I have increasingly been involved in the design and execution of randomized controlled trials. Some of my recent projects include:
+}
+\begin{changemargin}{2cm}{2cm}
+	\begin{itemize}
+		\item{Lead quantitative researcher for an Institute for Education Sciences (IES) funded Regional Educational Laboratory Southwest (RELSW) study examining the predictors of Hispanic students' success accessing, persisting, and completing college;}
+		\item{Co-principal investigator and lead quantitative researcher of a RELSW study examining disparities in access to and participation in advanced STEM coursework in high school, which was covered by {\href{http://blogs.edweek.org/edweek/curriculum/2017/10/minority_students_Texas_complete_fewer_STEM_classes.html}{Education Week}};}
+		\item{Senior researcher and methodological advisor for a multi-site cluster-randomized controlled trial of a project-based learning approach to teaching Advanced Placement Physics and Government;}
+		\item{Lead methodologist for a national study of students' online civic reasoning, which was covered by the {\href{https://www.washingtonpost.com/local/education/you-cant-believe-everything-you-read-online-many-students-dont-seem-to-know-that/2019/11/17/06a171f2-0670-11ea-ac12-3325d49eacaa_story.html}{Washington Post}} and {\href{https://www.msnbc.com/msnbc/watch/-deep-fakes-pose-threat-for-students-when-identifying-online-information-74656325868}{MSNBC}}, and is forthcoming in Educational Researcher;}
+		\item{Co-principal investigator and lead quantitative researcher for a study of women's access and success in Science, Technology, Engineering, and Math (STEM) courswork in college;}
+		\item{Co-principal investigator and lead quantitative reseracher for statewide, quasi-experimental evaluation of an online supplementary education platform that met Every Student Succeeds Act (ESSA)'s \textbf{Moderate} evidence standards;}
+		\item{Lead quantitative researcher for a quasi-experimental evaluation of a higher education professional development intervention that met ESSA's \textbf{Moderate} evidence standards;}
+		\item{Lead psychometrician on two statewide surveys in Texas and New Hampshire using the National Center for Special Education Accountability Monitoring instrument for measuring parental involvement;}
+		\item{Lead quantitative researcher of a randomized controlled trial of a new method for preparing teachers of English language learners;}
+		\item{Co-principal investigator or lead quantitative researcher for mutliple statewide evaluations of programs designed to improve teacher quality and ensure student access to high-quality instruction;}
+		\item{Lead quantitative researcher for a study of the impact of standardized test design on the statistical properties of student growth measures;}
+		\item{Co-principal investigator and lead quantitative researcher for an evaluation of a program to reduce discipline disproportionality in a large urban Texas school district.}
+	\end{itemize}
+\end{changemargin}
+}
+
+\quote{\quotetext}
+% bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+\makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+%   to redefine the bibliography heading string ("Publications")
+%\renewcommand{\refname}{Articles}
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\usepackage{xpatch}
+\begin{document}
+
+\fancyfoot[r]{\thepage}
+
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+
+\makecvtitle
+
+\section{Education}
+\cventry{2008}{A.B.D}{Texas Tech University}{Lubbock, Texas}{\textit{Department of Political Science}}{Concentration in Political Economy, Econometrics, and Research Methodology}  % arguments 3 to 6 can be left empty
+\cventry{2003}{M.A.}{St. Mary's University}{San Antonio, Texas}{\textit{Department of Political Science}}{International Relations}
+\cventry{2000}{B.A.}{University of Texas at San Antonio}{San Antonio, Texas}{\textit{Department of Political Science}}{Political Science and French}
+\cventry{2004}{Summer School in Social Science Data Analysis}{University of Essex}{Essex, United Kingdom}{}{Statistical models for limited and categorical variables}
+
+\section{Professional Positions}
+%\subsection{Vocational}
+\cventry{2012-Current}{Senior Research Scientist}{Gibson Consulting Group}{Austin, Texas}{}{Current Projects:\newline{}%
+\vspace{-1em}
+%Key Projects:%
+\begin{itemize}%
+\item Co-principal investigator of a Regional Education Southwest project examining school turnaround grants in Texas;
+\item Lead quantitative researcher on a Regional Education Southwest project tracing the transitions of Texas special education graduates into college using Texas' state longitudinal data system;
+\item Senior researcher and methodological adviser on a multi-site cluster randomized trial of a Project-Based Learning intervention in five large urban school districts in the United States. Partnership between Lucas Education Research, University of Southern California, Penn State University, and Gibson Consulting Group;
+\item Principal investigator of an evaluation of a school redesign grant in a large urban Texas school district;
+\item Co-principal investigator of a statewide evaluation of Texas' Career and Technical Education program;
+\item Lead methodologist for a randomized controlled trial of a teacher training program for teachers of English language learners, in partnership with Southern Methodist University.
+\end{itemize}}
+\cventry{2011-2012}{Research Scientist}{Edvance Research}{San Antonio, Texas}{}{}
+\cventry{2010-2011}{Research Scientist}{Texas Schools Project}{Austin, Texas}{}{}
+\cventry{2006-2011}{Evaluator}{Austin Independent School District}{Austin, Texas}{}{}
+\section{Software and Programming Experience}
+\cvitem{Regular and advanced}{\texttt{Stata}}
+\cvitem{Intermittent and project dependent}{\LaTeX, \texttt{HTML}, \texttt{WinSteps}, \textsf{R}, integration of \texttt{Stata}, \LaTeX and \texttt{HTML} for faciltating reproducible research, and for mass producing customized reports, \texttt{Jupyter}, \texttt{GitHub}, \texttt{Python}}
+\cvitem{Irregular}{\texttt{Tableau}, \texttt{Javascript}, \texttt{CSS}, \texttt{cURL}, \texttt{NVivo}, \texttt{Dedoose}, \texttt{SPSS}}
+
+\section{Statistical Expertise}
+\cvitem{}{}Most of my statistical training is in econometrics, with a focus on methods for panel data for continuous and limited outcomes (e.g., random and fixed effects models) and analyses of time-series data (e.g.,  Autoregressive-Moving Average Processes (ARMA), detection and resolution of trending and seasonality processes). Since transitioning into education research, my work has involved estimating treatment effects with observational data and non-equivalent groups. Methods I have used for this purpose include event-study designs, usually paired with matching (e.g. coarsened-exact matching, post-processing using propensity scores with a matching algorithm or inverse probability of selection weighting, and multivariate distance matching). I also regularly fit linear and generalized linear mixed models. An additional area of interest is in psychometrics and assessing measurement validity and reliability, particularly with survey data. I have used \texttt{Stata} and \texttt{WinSteps} to fit IRT models for existing validated instruments and newly developed ones.
+\begin{comment}
+\section{Extra 1}{\tiny }
+\cvlistitem{Item 1}
+\cvlistitem{Item 2}
+\cvlistitem{Item 3. This item is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+
+\section{Extra 2}
+\cvlistdoubleitem{Item 1}{Item 4}
+\cvlistdoubleitem{Item 2}{Item 5\cite{book1}}
+\cvlistdoubleitem{Item 3}{Item 6. Like item 3 in the single column list before, this item is particularly long to wrap over several lines.}
+
+\section{References}
+\begin{cvcolumns}
+  \cvcolumn{Category 1}{\begin{itemize}\item Person 1\item Person 2\item Person 3\end{itemize}}
+  \cvcolumn{Category 2}{Amongst others:\begin{itemize}\item Person 1, and\item Person 2\end{itemize}(more upon request)}
+  \cvcolumn[0.5]{All the rest \& some more}{\textit{That} person, and \textbf{those} also (all available upon request).}
+\end{cvcolumns}
+\end{comment}
+
+\section{Selected Peer Reviewed and non-Peer Reviewed Reports}
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+\nocite{*}
+\bibliographystyle{plainyrrev}
+\bibliography{garland_pubs}                        % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+\section{Conference Presentations}
+%\subsection{Vocational}
+\cventry{AERA}{2020, 2019, 2018}{}{}{}{}
+\cventry{SREE}{2016}{}{}{}{}
+
+\section{References}
+\subsection{}
+\vspace{-2em}
+\cvdoublecolumn{\cvreference{Deborah Jonas}
+	{Director, Center for Education Research \& Innovation}
+	{}
+	{SRI International}
+	{}
+	{\href{mailto:deborah.jonas@sri.com}{deborah.jonas@sri.com}}
+	{}%
+}
+{\cvreference{Anna Rosefsky Saavedra}
+	{Research Scientist, Center for Economic and Social Research}
+	{University of Southern California}
+	{}
+	{}
+	{\href{mailto:asaavedr@usc.edu}{asaavedr@usc.edu}}
+	{}%
+}
+\cvdoublecolumn{\cvreference{Trisha Borman}
+	{Managing Researcher}
+	{American Institutes for Research}
+	{}
+	{}
+	{\href{mailto:tborman@air.org}{tborman@air.or}}
+	{}
+}
+{\cvreference{Amie Rapaport}
+	{Director of Research}
+	{Gibson Consulting Group}
+	{}
+	{}
+	{\href{mailto:arapaport@gibsonconsult.com}{arapaport@gibsonconsult.com}}
+	{}
+}
+
+\fancyfoot[l]{Last updated \today}
+\clearpage
+\end{document}
+\end{document}
+
+
+%% end of file `template.tex'.
