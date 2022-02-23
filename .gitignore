@@ -16,4 +16,4 @@
 /tex/*.b*
 /tex/*
 .gitignore
-/tex
+tex/
