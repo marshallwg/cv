@@ -15,4 +15,4 @@
 /tex/*.sty
 /tex/*.b*
 /tex/*
-*.gi*
+.gitignore
