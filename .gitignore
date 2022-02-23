@@ -12,3 +12,6 @@
 *.fls
 /tex/stata/
 /tex/*.do
+/tex/*.sty
+/tex/*.b*
+/tex/*
